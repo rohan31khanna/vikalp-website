@@ -1,0 +1,217 @@
+/* ==========================================================
+   VIKALP DESIGN SYSTEM
+========================================================== */
+
+/*==========================
+  COLOR TOKENS
+==========================*/
+
+:root{
+
+  --primary:#081420;
+  --secondary:#102235;
+  --gold:#C8A96A;
+  --gold-dark:#A8782A;
+  --white:#FFFFFF;
+  --background:#FAF8F5;
+
+  --text:#1F2937;
+  --muted:#6B7280;
+
+  --border:#E5E7EB;
+
+}
+
+
+/*==========================
+  TYPOGRAPHY
+==========================*/
+
+.heading-xl{
+
+  font-family:var(--font-heading);
+  font-size:clamp(4rem,8vw,7rem);
+  line-height:1.05;
+  letter-spacing:-2px;
+  font-weight:500;
+
+}
+
+.heading-lg{
+
+  font-family:var(--font-heading);
+  font-size:clamp(3rem,5vw,4.5rem);
+  line-height:1.1;
+
+}
+
+.heading-md{
+
+  font-family:var(--font-heading);
+  font-size:2.5rem;
+  line-height:1.2;
+
+}
+
+.body-lg{
+
+  font-size:1.3rem;
+  line-height:2.1rem;
+
+}
+
+.body{
+
+  font-size:1rem;
+  line-height:1.9rem;
+
+}
+
+
+/*==========================
+  SECTION LAYOUT
+==========================*/
+
+.section{
+
+  position:relative;
+
+}
+
+.section-light{
+
+  background:var(--background);
+  color:var(--text);
+
+}
+
+.section-dark{
+
+  background:var(--primary);
+  color:var(--white);
+
+}
+
+
+/*==========================
+  SECTION TITLES
+==========================*/
+
+.gold-line{
+
+  width:90px;
+  height:2px;
+  background:var(--gold);
+  margin-bottom:10px;
+
+}
+
+.section-title{
+
+  font-family:var(--font-heading);
+  font-size:clamp(2.8rem,5vw,3.8rem);
+  line-height:1.15;
+  margin-bottom:18px;
+  color:var(--primary);
+
+}
+
+.section-title-light{
+
+  color:var(--white);
+
+}
+
+.section-subtitle{
+
+  max-width:720px;
+  font-size:1.18rem;
+  line-height:2rem;
+  color:var(--muted);
+
+}
+
+.section-subtitle-light{
+
+  color:rgba(255,255,255,.75);
+
+}
+
+
+/*==========================
+  CARDS
+==========================*/
+
+.luxury-card{
+
+  background:white;
+  border-radius:18px;
+  padding:40px;
+
+  border:1px solid var(--border);
+
+  box-shadow:
+  0 15px 45px rgba(0,0,0,.06);
+
+  transition:
+  transform .35s,
+  box-shadow .35s;
+
+}
+
+.luxury-card:hover{
+
+  transform:translateY(-8px);
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,.10);
+
+}
+
+
+/*==========================
+  IMAGES
+==========================*/
+
+.image-radius{
+
+  overflow:hidden;
+  border-radius:18px;
+
+}
+
+
+/*==========================
+  BUTTONS
+==========================*/
+
+.btn-gold{
+
+  background:var(--gold);
+  color:var(--primary);
+
+}
+
+.btn-outline{
+
+  border:1px solid var(--gold);
+  color:var(--gold);
+
+}
+
+
+/*==========================
+  TRANSITIONS
+==========================*/
+
+.fade{
+
+  transition:.35s;
+
+}
+
+.fade:hover{
+
+  opacity:.9;
+
+}
