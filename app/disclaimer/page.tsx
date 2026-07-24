@@ -1,46 +1,71 @@
-import type { Metadata } from "next";
+"use client";
 
-import BackToHomeButton from "@/components/ui/BackToHomeButton";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Disclaimer | VIKALP Advocates & Legal Consultants",
-  description:
-    "Read the Disclaimer of VIKALP Advocates & Legal Consultants.",
-};
+import DisclaimerContent from "@/components/legal/DisclaimerContent";
+import ScrollToTopOnMount from "@/components/ui/ScrollToTopOnMount";
 
 export default function DisclaimerPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <section className="border-b border-slate-200 bg-slate-900">
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-400">
-            Legal Information
-          </p>
+    <>
+      
 
-          <h1 className="mt-4 text-5xl font-bold text-white">
-            Disclaimer
-          </h1>
-        </div>
-      </section>
+      <main className="min-h-screen bg-stone-50">
+<section className="mx-auto max-w-[860px] px-6 pt-8 pb-10 lg:pt-10 lg:pb-12">
+            <div className="overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-xl">
 
-      <section className="mx-auto max-w-4xl px-6 py-16">
-        <div className="rounded-xl border border-slate-200 bg-white p-10 shadow-sm">
-          <p className="leading-8 text-slate-700">
-            VIKALP Advocates & Legal Consultants is committed to protecting the
-            privacy and confidentiality of information shared with us through
-            this website.
-          </p>
+            {/* Header */}
 
-          <p className="mt-6 leading-8 text-slate-700">
-            A comprehensive Disclaimer will be published before the official
-            launch of the website.
-          </p>
+            <div className="bg-stone-50 px-8 pt-3 pb-3 text-center md:px-10">
 
-          <div className="mt-10">
-            <BackToHomeButton />
+              <h1 className="font-heading text-4xl font-semibold tracking-[0.18em] text-[#7A5A28] md:text-5xl">
+                VIKALP
+              </h1>
+
+              <p className="mt-2 text-sm uppercase tracking-[0.35em] text-gray-500">
+                Advocates &amp; Legal Consultants
+              </p>
+
+              <div className="mx-auto mt-4 h-px w-16 bg-primary/30" />
+
+              <h2 className="mt-3 font-heading text-3xl font-semibold text-[#7A5A28]">
+                Disclaimer
+              </h2>
+
+            </div>
+
+            {/* Body */}
+
+            <div className="px-8 py-6 md:px-12">
+              <DisclaimerContent />
+            </div>
+
+            {/* Footer */}
+
+<div className="border-t border-primary/10 bg-stone-50 px-8 py-4 md:px-12">
+              <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-12">
+
+                <Link
+                  href="/"
+                  className="font-medium text-[#7A5A28] transition hover:text-[#5F431D] hover:underline"
+                >
+                  ← Back to Home
+                </Link>
+
+                <Link
+                  href="/#contact"
+                  className="rounded-full bg-[#7A5A28] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#5F431D]"
+                >
+                  Contact the Firm
+                </Link>
+
+              </div>
+
+            </div>
+
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }

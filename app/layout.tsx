@@ -1,6 +1,7 @@
 
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import DisclaimerGate from "@/components/ui/DisclaimerGate";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
@@ -149,15 +150,14 @@ export default function RootLayout({
   className={`${headingFont.variable} ${bodyFont.variable}`}
 >
       <body className="min-h-full flex flex-col">
-       <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(structuredData),
-  }}
-/>          
-        {children}
-        <ScrollToTop />
-      </body>
+
+  <DisclaimerGate />
+
+  {children}
+
+  <ScrollToTop />
+
+</body>
     </html>
   );
 }

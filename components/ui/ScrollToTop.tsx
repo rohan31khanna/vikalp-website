@@ -1,11 +1,17 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronUp } from "lucide-react";
 
 export default function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);
-
+const pathname = usePathname();
+const hiddenPages = [
+  "/disclaimer",
+  "/privacy-policy",
+  "/terms",
+];
     useEffect(() => {
         const toggleVisibility = () => {
             if (window.scrollY > 400) {
@@ -21,7 +27,9 @@ export default function ScrollToTop() {
             window.removeEventListener("scroll", toggleVisibility);
         };
     }, []);
-
+if (hiddenPages.includes(pathname)) {
+  return null;
+}
     return (
         <>
             {isVisible && (
