@@ -58,7 +58,7 @@ export default function LegalNavigator() {
   const {
     isOpen,
     close,
-
+    reset,
     view,
 
     goNext,
@@ -74,7 +74,8 @@ export default function LegalNavigator() {
     leadDetails,
 
     setLeadDetails,
-
+    consultationDetails,
+    setConsultationDetails,
     question,
     recommendation,
 
@@ -217,10 +218,44 @@ onClose={view === "success" ? close : handleRequestClose}
       onBack={goBack}
       footer={
   view === "preparation" && recommendation ? (
-    <div className="flex w-full gap-3">
+    <div className="flex w-full gap-4">
+      {/* Primary CTA */}
       <button
         type="button"
         onClick={goToLead}
+        className="
+          inline-flex
+          flex-[1.15]
+          items-center
+          justify-center
+          gap-2
+          rounded-xl
+          bg-amber-600
+          px-6
+          py-3.5
+          text-sm
+          font-semibold
+          text-white
+          shadow-lg
+          transition-all
+          duration-200
+          hover:-translate-y-0.5
+          hover:bg-amber-700
+          hover:shadow-xl
+          focus:outline-none
+          focus:ring-2
+          focus:ring-amber-500/40
+          sm:text-base
+        "
+      >
+        Continue with My Consultation
+        <span aria-hidden="true">→</span>
+      </button>
+
+      {/* Secondary CTA */}
+      <button
+        type="button"
+        onClick={handleViewPracticeArea}
         className="
           inline-flex
           flex-1
@@ -231,9 +266,9 @@ onClose={view === "success" ? close : handleRequestClose}
           border-slate-300
           bg-white
           px-6
-          py-3
+          py-3.5
           text-sm
-          font-semibold
+          font-medium
           text-slate-800
           shadow-sm
           transition-all
@@ -243,35 +278,8 @@ onClose={view === "success" ? close : handleRequestClose}
           hover:shadow-md
           focus:outline-none
           focus:ring-2
-          focus:ring-amber-500/30
-        "
-      >
-        Continue with My Consultation
-      </button>
-
-      <button
-        type="button"
-        onClick={handleViewPracticeArea}
-        className="
-          inline-flex
-          flex-1
-          items-center
-          justify-center
-          rounded-xl
-          bg-amber-600
-          px-6
-          py-3
-          text-sm
-          font-semibold
-          text-white
-          shadow-md
-          transition-all
-          duration-200
-          hover:bg-amber-700
-          hover:shadow-lg
-          focus:outline-none
-          focus:ring-2
-          focus:ring-amber-500/30
+          focus:ring-slate-400/30
+          sm:text-base
         "
       >
         View Practice Area
@@ -320,12 +328,12 @@ onClose={view === "success" ? close : handleRequestClose}
         {/* Consultation Details */}
 
         {view === "request" && (
-          <ConsultationDetails
-            onSubmit={
-              handleConsultationRequest
-            }
-          />
-        )}
+  <ConsultationDetails
+    form={consultationDetails}
+    setForm={setConsultationDetails}
+    onSubmit={handleConsultationRequest}
+  />
+)}
 
         {/* Success */}
 
@@ -333,6 +341,7 @@ onClose={view === "success" ? close : handleRequestClose}
   <SuccessRenderer
     referenceNumber={referenceNumber ?? "VK-TEMP-000001"}
     email={leadDetails.email}
+    onReturnToWebsite={reset}
   />
 )}
       </div>

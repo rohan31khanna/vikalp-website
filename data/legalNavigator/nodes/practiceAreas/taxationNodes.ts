@@ -17,7 +17,7 @@ export const taxationNodes: NavigatorNodes = {
 
     totalSteps: NAVIGATOR.TOTAL_STEPS,
 
-    title: "What best describes your taxation matter?",
+    title: "Which best describes your taxation matter?",
 
     subtitle:
       "Select the option that most closely matches your taxation concern.",

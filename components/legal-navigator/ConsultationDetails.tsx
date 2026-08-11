@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import type {
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 import type {
   ContactMethod,
@@ -9,24 +12,22 @@ import type {
 } from "@/types/consultation";
 
 interface ConsultationRequestProps {
+  form: ConsultationRequestFormData;
+
+  setForm: Dispatch<
+    SetStateAction<ConsultationRequestFormData>
+  >;
+
   onSubmit: (
     data: ConsultationRequestFormData
   ) => void;
 }
 
-const INITIAL_FORM: ConsultationRequestFormData = {
-  preferredContactMethod: "phone",
-  preferredContactTime: "anytime",
-  additionalInformation: "",
-};
-
 export default function ConsultationRequest({
+  form,
+  setForm,
   onSubmit,
 }: ConsultationRequestProps) {
-  const [form, setForm] =
-    useState<ConsultationRequestFormData>(
-      INITIAL_FORM
-    );
 
   const updateField = <
     K extends keyof ConsultationRequestFormData

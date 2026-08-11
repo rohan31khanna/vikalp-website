@@ -1,9 +1,11 @@
 "use client";
 
 import { contactSubjects } from "@/data/contact";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactForm() {
+    const searchParams = useSearchParams();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -11,6 +13,17 @@ export default function ContactForm() {
 
     const [selectedSubject, setSelectedSubject] = useState("");
     const [selectedService, setSelectedService] = useState("");
+    useLayoutEffect(() => {
+  const practice = searchParams.get("practice");
+
+  if (!practice) return;
+
+  setSelectedSubject((previous) =>
+    previous === practice ? previous : practice
+  );
+
+  setSelectedService("");
+}, [searchParams]);
     const selectedCategory = contactSubjects.find(
         (subject) => subject.title === selectedSubject
     );

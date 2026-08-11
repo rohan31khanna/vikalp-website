@@ -22,7 +22,7 @@ export const knowledge = [
     {
         id: 2,
         title: "Corporate Governance: Best Practices for Growing Companies",
-        category: "Corporate Law",
+        category: "Corporate & Commercial Law",
         description:
             "Key governance principles every modern organization should adopt to reduce legal risks.",
         date: "28 May 2026",

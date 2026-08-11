@@ -1,6 +1,13 @@
 export const NODE_IDS = {
   START: "start",
 
+  CONTEXT: {
+    PERSONAL: "context-personal",
+    BUSINESS: "context-business",
+    DISPUTES: "context-disputes",
+    TAX_REGULATORY: "context-tax-regulatory",
+  },
+
   FAMILY: {
     MATTER: "family-category",
     STAGE: "family-stage",

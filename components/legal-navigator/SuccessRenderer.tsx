@@ -1,17 +1,17 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 
 interface SuccessRendererProps {
   referenceNumber?: string;
   email?: string;
+  onReturnToWebsite: () => void;
 }
 
 export default function SuccessRenderer({
   referenceNumber = "VK-TEMP-000001",
   email,
+  onReturnToWebsite,
 }: SuccessRendererProps) {
-  const router = useRouter();
 
   return (
     <section className="space-y-5">
@@ -223,8 +223,8 @@ This is optional. You may continue without providing an email address.
       {/* Return */}
       <div className="pt-1">
         <button
-          type="button"
-          onClick={() => router.push("/")}
+  type="button"
+  onClick={onReturnToWebsite}
           className="
             w-full
             rounded-xl

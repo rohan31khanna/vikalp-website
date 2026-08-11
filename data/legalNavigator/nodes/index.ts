@@ -1,4 +1,5 @@
 import { startNode } from "./startNode";
+import { contextNodes } from "../contextNodes";
 
 import { familyNodes } from "./practiceAreas/familyNodes";
 import { criminalNodes } from "./practiceAreas/criminalNodes";
@@ -11,12 +12,15 @@ import { employmentLabourNodes } from "./practiceAreas/employmentLabourNodes";
 import { arbitrationNodes } from "./practiceAreas/arbitrationNodes";
 import { ipNodes } from "./practiceAreas/ipNodes";
 import { taxationNodes } from "./practiceAreas/taxationNodes";
-export { taxationNodes } from "./practiceAreas/taxationNodes";
 import { insolvencyNodes } from "./practiceAreas/insolvencyNodes";
+
+export { taxationNodes } from "./practiceAreas/taxationNodes";
 export { insolvencyNodes } from "./practiceAreas/insolvencyNodes";
 
 export const nodes = {
   ...startNode,
+
+  ...contextNodes,
 
   ...familyNodes,
 

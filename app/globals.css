@@ -1,16 +1,43 @@
 @import "tailwindcss";
 @import "../styles/design-system.css";
 
+/* ==========================================================
+   GLOBAL BASE
+========================================================== */
+
 html {
   scroll-behavior: smooth;
-  
+  width: 100%;
+  overflow-x: clip;
 }
 
 body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
   background: #081420;
   color: #ffffff;
   font-family: var(--font-body);
+  overflow-x: clip;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+}
+
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
 
 h1,
 h2,
@@ -21,11 +48,10 @@ h6 {
   font-family: var(--font-heading);
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
-
+/* ==========================================================
+   GENERAL SCROLL ANIMATION
+========================================================== */
 
 @keyframes scrollFloat {
   0%,
@@ -44,48 +70,15 @@ html {
   animation: scrollFloat 2s ease-in-out infinite;
 }
 
-/* ==========================================================
-   HERO SCROLL INDICATOR
-========================================================== */
-
-@keyframes scroll-wheel {
-
-  0%{
-    transform:translateY(0);
-    opacity:.2;
-  }
-
-  25%{
-    opacity:1;
-  }
-
-  70%{
-    transform:translateY(18px);
-    opacity:1;
-  }
-
-  100%{
-    transform:translateY(0);
-    opacity:.2;
-  }
-
-}
-
-.animate-scroll-wheel{
-
-  animation:scroll-wheel 1.8s ease-in-out infinite;
-
-}
 
 /* ==========================================================
    HERO SCROLL INDICATOR
 ========================================================== */
 
 @keyframes scroll-wheel {
-
   0% {
     transform: translateY(0);
-    opacity: .25;
+    opacity: 0.25;
   }
 
   25% {
@@ -99,33 +92,28 @@ html {
 
   100% {
     transform: translateY(0);
-    opacity: .25;
+    opacity: 0.25;
   }
-
 }
 
-.animate-scroll-wheel{
-  animation:scroll-wheel 2s ease-in-out infinite;
+.animate-scroll-wheel {
+  animation: scroll-wheel 2s ease-in-out infinite;
 }
 
-.animate-scroll-wheel-fast{
-  animation:scroll-wheel 1s ease-in-out infinite;
+.animate-scroll-wheel-fast {
+  animation: scroll-wheel 1s ease-in-out infinite;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
+
+/* ==========================================================
+   HIDDEN SCROLLBAR
+========================================================== */
 
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
-}
-
-.scrollbar-hide {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }

@@ -1,7 +1,6 @@
 import type { NavigatorNodes } from "@/types/legalNavigator";
 
 import { NODE_IDS } from "../workflowIds";
-import { PRACTICE } from "../practiceAreas";
 import { NAVIGATOR } from "../constants";
 
 export const startNode: NavigatorNodes = {
@@ -14,118 +13,46 @@ export const startNode: NavigatorNodes = {
 
     totalSteps: NAVIGATOR.TOTAL_STEPS,
 
-    title: "What best describes your legal concern?",
+    title: "Let’s start with your situation.",
 
     subtitle:
-      "Choose the option that most closely matches your situation.",
+      "Choose the path that feels closest to your situation. You don’t need to know the exact legal category — we’ll guide you from here.",
 
     options: [
       {
-        id: "family",
-        label: PRACTICE.FAMILY,
+        id: "personal",
+        label: "Personal & Family",
         description:
-          "Divorce, child custody, maintenance, domestic violence and other family matters.",
-        icon: "👨‍👩‍👧",
-        next: NODE_IDS.FAMILY.MATTER,
+          "Family, property, consumer and other personal legal matters.",
+        icon: "👤",
+        next: NODE_IDS.CONTEXT.PERSONAL,
       },
 
       {
-        id: "criminal",
-        label: PRACTICE.CRIMINAL,
+        id: "business",
+        label: "Business & Professional",
         description:
-          "FIR, arrest, bail, police investigation, criminal trial and related matters.",
-        icon: "🚔",
-        next: NODE_IDS.CRIMINAL.MATTER,
+          "Business, employment, finance, intellectual property and professional matters.",
+        icon: "💼",
+        next: NODE_IDS.CONTEXT.BUSINESS,
       },
 
       {
-        id: "property",
-        label: PRACTICE.PROPERTY,
+        id: "disputes",
+        label: "Disputes & Proceedings",
         description:
-          "Property disputes, sale, purchase, builder matters, registration and ownership issues.",
-        icon: "🏠",
-        next: NODE_IDS.PROPERTY.MATTER,
-      },
-
-      {
-        id: "corporate",
-        label: PRACTICE.CORPORATE,
-        description:
-          "Business formation, contracts, compliance, commercial disputes and company matters.",
-        icon: "🏢",
-        next: NODE_IDS.CORPORATE.MATTER,
-      },
-
-      {
-        id: "consumer",
-        label: PRACTICE.CONSUMER,
-        description:
-          "Defective products, poor services, insurance disputes, online shopping and consumer rights.",
-        icon: "🛡️",
-        next: NODE_IDS.CONSUMER.MATTER,
-      },
-
-      {
-        id: "civil",
-        label: PRACTICE.CIVIL,
-        description:
-          "Money recovery, injunctions, civil disputes, appeals and other civil court matters.",
+          "Civil, criminal, arbitration and other legal disputes or proceedings.",
         icon: "⚖️",
-        next: NODE_IDS.CIVIL.MATTER,
+        next: NODE_IDS.CONTEXT.DISPUTES,
       },
 
       {
-        id: "banking",
-        label: PRACTICE.BANKING,
+        id: "tax-regulatory",
+        label: "Tax & Regulatory",
         description:
-          "Banking disputes, loans, recovery, fraud, credit cards, accounts and financial matters.",
-        icon: "🏦",
-        next: NODE_IDS.BANKING.MATTER,
-      },
-
-      {
-        id: "employment-labour",
-        label: PRACTICE.EMPLOYMENT_LABOUR,
-        description:
-          "Employment disputes, termination, wages, workplace issues, labour compliance and related matters.",
-        icon: "👔",
-        next: NODE_IDS.EMPLOYMENT_LABOUR.MATTER,
-      },
-
-      {
-        id: "taxation",
-        label: PRACTICE.TAXATION,
-        description:
-          "Income tax, GST, tax notices, assessments, appeals, recovery and other taxation matters.",
-        icon: "💰",
-        next: NODE_IDS.TAXATION.MATTER,
-      },
-
-      {
-        id: "arbitration",
-        label: PRACTICE.ARBITRATION,
-        description:
-          "Arbitration, dispute resolution, arbitral proceedings, awards, enforcement and related matters.",
-        icon: "⚖️",
-        next: NODE_IDS.ARBITRATION.MATTER,
-      },
-
-      {
-        id: "intellectual-property",
-        label: PRACTICE.IP,
-        description:
-          "Trademarks, copyrights, patents, designs, infringement, licensing and IP protection.",
-        icon: "💡",
-        next: NODE_IDS.IP.MATTER,
-      },
-
-      {
-        id: "insolvency",
-        label: PRACTICE.INSOLVENCY,
-        description:
-          "Corporate insolvency, CIRP, liquidation, creditor matters, NCLT proceedings and bankruptcy.",
-        icon: "🏛️",
-        next: NODE_IDS.INSOLVENCY.MATTER,
+          "Taxation, compliance, notices, assessments and regulatory matters.",
+        icon: "🧾",
+        next: NODE_IDS.CONTEXT.TAX_REGULATORY,
       },
     ],
   },

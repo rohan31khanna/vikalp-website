@@ -22,7 +22,7 @@ export function getBankingPreparation(
       return getBankingDisputePreparation();
 
     case "Loan & EMI Disputes":
-      return getBankingLoanPreparation();
+      return getBankingLoanPreparation(workflowAnswers);
 
     case "Loan Recovery / Bank Recovery":
       return getBankingRecoveryPreparation();

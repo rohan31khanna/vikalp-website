@@ -1,10 +1,20 @@
-
 export const BUSINESS_CORPORATE = "Business & Corporate";
 
 export const NAVIGATOR = {
   START_NODE: "start",
-  TOTAL_STEPS: 4,
-  VERSION: "1.0",
+
+  /**
+   * Guided Discovery flow:
+   *
+   * Step 1 — Context
+   * Step 2 — Practice Area
+   * Step 3 — Specific Matter
+   * Step 4 — Current Stage
+   * Step 5 — Urgency
+   */
+  TOTAL_STEPS: 5,
+
+  VERSION: "1.1",
 } as const;
 
 export const NAVIGATOR_DISCLAIMER =

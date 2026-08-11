@@ -17,7 +17,7 @@ export const bankingNodes: NavigatorNodes = {
 
     totalSteps: NAVIGATOR.TOTAL_STEPS,
 
-    title: "What best describes your banking or financial matter?",
+    title: "Which best describes your banking or financial matter?",
 
     subtitle:
       "Select the option that most closely matches your banking or finance-related concern.",

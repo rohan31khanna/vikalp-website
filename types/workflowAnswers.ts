@@ -1,10 +1,11 @@
 export interface WorkflowAnswer {
   id: string;
-
   label: string;
 }
 
 export interface WorkflowAnswers {
+  context?: string;
+
   practiceArea?: string;
 
   matter?: string;

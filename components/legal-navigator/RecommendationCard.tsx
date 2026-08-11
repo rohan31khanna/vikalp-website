@@ -10,30 +10,20 @@ import SummarySection from "@/components/legal-navigator/SummarySection";
 
 interface RecommendationCardProps {
   recommendation: RecommendationNode;
-
   workflowAnswers: WorkflowAnswers;
-
   onLearnMore: () => void;
-
   onContact: () => void;
 }
 
 export default function RecommendationCard({
   recommendation,
   workflowAnswers,
-  onLearnMore,
-  onContact,
 }: RecommendationCardProps) {
   const preparationSummary =
     generatePreparationSummary(workflowAnswers);
 
   const preparation =
     generatePreparation(workflowAnswers);
-
-console.log("WORKFLOW ANSWERS DEBUG:", workflowAnswers);
-console.log("PRACTICE AREA DEBUG:", workflowAnswers.practiceArea);
-console.log("MATTER DEBUG:", workflowAnswers.matter);
-console.log("PREPARATION DEBUG:", preparation);
 
   const documents =
     preparation?.documents ?? [];
@@ -47,15 +37,14 @@ console.log("PREPARATION DEBUG:", preparation);
   return (
     <section
       aria-labelledby="navigator-recommendation"
-      className="w-full space-y-5 sm:space-y-6"
+      className="w-full space-y-4 sm:space-y-5"
     >
       {/* =========================================================
           COMPLETION + INTRO
           ========================================================= */}
 
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {/* Completion indicator */}
-
         <div
           className="
             inline-flex
@@ -67,9 +56,9 @@ console.log("PREPARATION DEBUG:", preparation);
             bg-emerald-50
             px-3
             py-1
-            text-[0.72rem]
+            text-[0.68rem]
             font-semibold
-            tracking-wide
+            tracking-[0.04em]
             text-emerald-800
             sm:px-3.5
             sm:text-xs
@@ -77,7 +66,7 @@ console.log("PREPARATION DEBUG:", preparation);
         >
           <span
             aria-hidden="true"
-            className="text-[0.8rem]"
+            className="text-[0.78rem]"
           >
             ✓
           </span>
@@ -91,131 +80,34 @@ console.log("PREPARATION DEBUG:", preparation);
             className="
               max-w-3xl
               font-serif
-              text-[1.7rem]
+              text-[1.55rem]
               font-semibold
               leading-[1.14]
               tracking-[-0.015em]
-              text-slate-900
-
-              sm:text-3xl
+              text-slate-950
+              sm:text-[1.9rem]
               lg:text-[2.05rem]
             "
           >
-            Your Personalised Consultation
-            Preparation is Ready
+            Your consultation preparation is ready.
           </h2>
 
           <p
             className="
-              mt-2.5
-              max-w-3xl
-              text-[0.9rem]
-              leading-6
-              text-slate-600
-
-              sm:mt-3
-              sm:text-base
-              sm:leading-7
-            "
-          >
-            Based on the information you've shared during
-            Guided Discovery, we've prepared a personalised
-            consultation brief to help you understand the
-            next steps and enable our legal team to prepare
-            before your first discussion.
-          </p>
-
-          <p
-            className="
               mt-2
+              max-w-2xl
               text-[0.82rem]
-              font-medium
-              leading-5
-              text-slate-500
+              leading-[1.35rem]
+              text-slate-600
+              sm:mt-2.5
+              sm:text-sm
+              sm:leading-6
             "
           >
-            Please review the information below before
-            continuing.
+            We’ve organised your Guided Discovery responses
+            into a preparation brief so your consultation can
+            begin with a clearer understanding of your matter.
           </p>
-        </div>
-      </div>
-
-      {/* =========================================================
-          PREPARATION READY
-          ========================================================= */}
-
-      <div
-        className="
-          rounded-2xl
-          border
-          border-emerald-200
-          bg-emerald-50/80
-          p-4
-
-          sm:p-5
-        "
-      >
-        <div className="flex items-start gap-3.5">
-          <div
-            aria-hidden="true"
-            className="
-              flex
-              h-10
-              w-10
-              shrink-0
-              items-center
-              justify-center
-              rounded-xl
-              bg-white
-              text-xl
-              shadow-sm
-              ring-1
-              ring-emerald-100
-
-              sm:h-11
-              sm:w-11
-              sm:text-2xl
-            "
-          >
-            🛡️
-          </div>
-
-          <div className="min-w-0">
-            <h3
-              className="
-                text-[0.96rem]
-                font-semibold
-                leading-5
-                text-slate-900
-
-                sm:text-lg
-                sm:leading-6
-              "
-            >
-              Your Consultation Preparation Has Been
-              Organised
-            </h3>
-
-            <p
-              className="
-                mt-1.5
-                text-[0.8rem]
-                leading-5
-                text-slate-600
-
-                sm:mt-2
-                sm:text-sm
-                sm:leading-6
-              "
-            >
-              Your Guided Discovery responses have been
-              organised into a structured consultation brief.
-              Your assigned legal team can review this
-              information before your initial discussion,
-              helping make your consultation more focused and
-              efficient.
-            </p>
-          </div>
         </div>
       </div>
 
@@ -234,74 +126,73 @@ console.log("PREPARATION DEBUG:", preparation);
           from-amber-50
           via-white
           to-white
-          p-5
+          px-4
+          py-4
           shadow-[0_4px_18px_rgba(15,23,42,0.04)]
-
-          sm:p-6
+          sm:px-5
+          sm:py-5
         "
       >
-        {/* Subtle accent */}
-
+        {/* Accent */}
         <div
           aria-hidden="true"
           className="
             absolute
+            inset-y-0
             left-0
-            top-0
-            h-full
-            w-1
-            bg-amber-500/80
+            w-[3px]
+            bg-amber-500
           "
         />
 
-        <p
-          className="
-            text-[0.68rem]
-            font-semibold
-            uppercase
-            tracking-[0.12em]
-            text-amber-700
+        <div className="pl-1">
+          <p
+            className="
+              text-[0.62rem]
+              font-semibold
+              uppercase
+              tracking-[0.14em]
+              text-amber-700
+              sm:text-[0.68rem]
+            "
+          >
+            Recommended Practice Area
+          </p>
 
-            sm:text-xs
-          "
-        >
-          Recommended Practice Area
-        </p>
+          <h3
+            className="
+              mt-1
+              font-serif
+              text-[1.4rem]
+              font-semibold
+              leading-tight
+              tracking-[-0.01em]
+              text-slate-950
+              sm:text-[1.65rem]
+            "
+          >
+            {recommendation.title}
+          </h3>
 
-        <h3
-          className="
-            mt-1.5
-            font-serif
-            text-[1.45rem]
-            font-semibold
-            leading-tight
-            tracking-[-0.01em]
-            text-slate-900
-
-            sm:text-2xl
-          "
-        >
-          {recommendation.title}
-        </h3>
-
-        <p
-          className="
-            mt-2
-            text-[0.82rem]
-            leading-5
-            text-slate-600
-
-            sm:mt-3
-            sm:text-sm
-            sm:leading-6
-          "
-        >
-          {recommendation.description}
-        </p>
+          <p
+            className="
+              mt-1.5
+              max-w-3xl
+              text-[0.78rem]
+              leading-[1.3rem]
+              text-slate-600
+              sm:mt-2
+              sm:text-sm
+              sm:leading-5
+            "
+          >
+            {recommendation.description}
+          </p>
+        </div>
       </div>
 
       {/* =========================================================
-          RESPONSE SUMMARY
+          RESPONSE SNAPSHOT
           ========================================================= */}
 
       <div
@@ -309,47 +200,40 @@ console.log("PREPARATION DEBUG:", preparation);
           rounded-2xl
           border
           border-slate-200
-          bg-slate-50/70
-          p-4
-
-          sm:p-5
+          bg-slate-50/60
+          p-3.5
+          sm:p-4.5
         "
       >
         <div>
           <h3
             className="
-              text-[0.98rem]
+              font-serif
+              text-[1rem]
               font-semibold
-              text-slate-900
-
-              sm:text-lg
+              text-slate-950
+              sm:text-[1.1rem]
             "
           >
-            Summary of Your Responses
+            Your Consultation Snapshot
           </h3>
 
           <p
             className="
-              mt-1.5
-              text-[0.8rem]
+              mt-1
+              text-[0.76rem]
               leading-5
               text-slate-600
-
               sm:text-sm
-              sm:leading-6
             "
           >
-            This consultation preparation summarises the
-            information you shared during Guided Discovery
-            and highlights the documents, discussion points
-            and practical considerations that may help you
-            prepare for your initial consultation.
+            Here’s what we understood from your responses.
           </p>
         </div>
 
         <dl
           className="
-            mt-4
+            mt-3
             overflow-hidden
             rounded-xl
             border
@@ -357,65 +241,62 @@ console.log("PREPARATION DEBUG:", preparation);
             bg-white
           "
         >
-          {preparationSummary.map(
-            (item, index) => (
-              <div
-                key={item.title}
-                className={`
-                  flex
-                  flex-col
-                  gap-1.5
-                  px-3.5
-                  py-3
+          {preparationSummary.map((item, index) => (
+            <div
+              key={item.title}
+              className={`
+                px-3
+                py-2.5
+                sm:flex
+                sm:items-center
+                sm:justify-between
+                sm:gap-4
+                sm:px-3.5
+                sm:py-3
 
-                  sm:flex-row
-                  sm:items-center
-                  sm:justify-between
-                  sm:gap-4
-                  sm:px-4
-
-                  ${
-                    index !==
-                    preparationSummary.length - 1
-                      ? "border-b border-slate-100"
-                      : ""
-                  }
-                `}
+                ${
+                  index !==
+                  preparationSummary.length - 1
+                    ? "border-b border-slate-100"
+                    : ""
+                }
+              `}
+            >
+              <dt
+                className="
+                  text-[0.68rem]
+                  font-medium
+                  text-slate-500
+                  sm:text-xs
+                "
               >
-                <dt
-                  className="
-                    text-[0.76rem]
-                    font-medium
-                    text-slate-500
+                {item.title}
+              </dt>
 
-                    sm:text-sm
-                  "
-                >
-                  {item.title}
-                </dt>
-
-                <dd
-                  className="
-                    text-[0.88rem]
-                    font-semibold
-                    leading-5
-                    text-slate-900
-
-                    sm:max-w-[60%]
-                    sm:text-right
-                  "
-                >
-                  {item.value}
-                </dd>
-              </div>
-            )
-          )}
+              <dd
+                className="
+                  mt-0.5
+                  text-[0.8rem]
+                  font-semibold
+                  leading-5
+                  text-slate-900
+                  sm:mt-0
+                  sm:max-w-[62%]
+                  sm:text-right
+                  sm:text-sm
+                "
+              >
+                {item.value}
+              </dd>
+            </div>
+          ))}
         </dl>
       </div>
 
       {/* =========================================================
           PREPARATION DETAILS
           ========================================================= */}
+
       <div className="space-y-2.5 sm:space-y-3">
         <SummarySection
           title="Key Insights From Your Responses"
@@ -447,7 +328,7 @@ console.log("PREPARATION DEBUG:", preparation);
       </div>
 
       {/* =========================================================
-          CONTACT DETAILS EXPLANATION
+          WHY WE ASK FOR CONTACT DETAILS
           ========================================================= */}
 
       <div
@@ -455,19 +336,19 @@ console.log("PREPARATION DEBUG:", preparation);
           rounded-2xl
           border
           border-emerald-200
-          bg-emerald-50/70
-          p-4
-
-          sm:p-5
+          bg-emerald-50/60
+          px-3.5
+          py-3.5
+          sm:px-4
+          sm:py-4
         "
       >
         <h3
           className="
-            text-[0.95rem]
+            text-[0.82rem]
             font-semibold
             text-slate-900
-
-            sm:text-base
+            sm:text-sm
           "
         >
           Why We Ask for Your Contact Details
@@ -475,22 +356,19 @@ console.log("PREPARATION DEBUG:", preparation);
 
         <p
           className="
-            mt-1.5
-            text-[0.8rem]
-            leading-5
+            mt-1
+            text-[0.74rem]
+            leading-[1.25rem]
             text-slate-600
-
             sm:text-sm
-            sm:leading-6
+            sm:leading-5
           "
         >
           Your Guided Discovery responses, consultation
           preparation and contact details will be securely
           shared with our legal team. Reviewing this
-          information in advance enables the assigned lawyer
-          to better understand your matter before the first
-          discussion, making your consultation more focused
-          and efficient.
+          information in advance helps the assigned lawyer
+          understand your matter before the first discussion.
         </p>
       </div>
 
@@ -503,19 +381,19 @@ console.log("PREPARATION DEBUG:", preparation);
           rounded-xl
           border
           border-amber-200
-          bg-amber-50/50
-          p-3.5
-
-          sm:p-4
+          bg-amber-50/40
+          px-3
+          py-3
+          sm:px-3.5
+          sm:py-3.5
         "
       >
         <h3
           className="
-            text-[0.8rem]
+            text-[0.72rem]
             font-semibold
             text-slate-900
-
-            sm:text-sm
+            sm:text-xs
           "
         >
           Legal Disclaimer
@@ -523,13 +401,12 @@ console.log("PREPARATION DEBUG:", preparation);
 
         <p
           className="
-            mt-1.5
-            text-[0.76rem]
-            leading-5
+            mt-1
+            text-[0.7rem]
+            leading-[1.2rem]
             text-slate-600
-
-            sm:text-sm
-            sm:leading-6
+            sm:text-xs
+            sm:leading-5
           "
         >
           This consultation preparation has been generated
@@ -551,18 +428,18 @@ console.log("PREPARATION DEBUG:", preparation);
           border
           border-slate-200
           bg-slate-50
-          p-4
-
-          sm:p-5
+          px-3.5
+          py-3.5
+          sm:px-4
+          sm:py-4
         "
       >
         <h3
           className="
-            text-[0.95rem]
+            text-[0.82rem]
             font-semibold
             text-slate-900
-
-            sm:text-base
+            sm:text-sm
           "
         >
           What Happens Next?
@@ -570,14 +447,12 @@ console.log("PREPARATION DEBUG:", preparation);
 
         <ul
           className="
-            mt-2.5
+            mt-2
             space-y-1.5
-            text-[0.8rem]
+            text-[0.74rem]
             leading-5
             text-slate-600
-
             sm:text-sm
-            sm:leading-6
           "
         >
           <li className="flex gap-2">
@@ -588,7 +463,7 @@ console.log("PREPARATION DEBUG:", preparation);
               ✓
             </span>
             <span>
-              Review your Guided Discovery Summary.
+              Review your Guided Discovery summary.
             </span>
           </li>
 
