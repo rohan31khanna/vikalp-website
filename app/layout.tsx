@@ -4,6 +4,9 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import DisclaimerGate from "@/components/ui/DisclaimerGate";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import LegalNavigator from "@/components/legal-navigator";
+import FloatingButton from "@/components/legal-navigator/FloatingButton";
+import NavigatorProvider from "@/components/legal-navigator/NavigatorProvider";
 
 
 const headingFont = Cormorant_Garamond({
@@ -149,13 +152,24 @@ export default function RootLayout({
   data-scroll-behavior="smooth"
   className={`${headingFont.variable} ${bodyFont.variable}`}
 >
-      <body className="min-h-full flex flex-col">
-
+      <body className="min-h-screen flex flex-col bg-white text-slate-900">
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(structuredData),
+  }}
+/>
   <DisclaimerGate />
 
+<NavigatorProvider>
   {children}
 
   <ScrollToTop />
+
+  <LegalNavigator />
+
+  <FloatingButton />
+</NavigatorProvider>
 
 </body>
     </html>
